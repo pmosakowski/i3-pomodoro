@@ -1,0 +1,28 @@
+* i3-pomodoro
+
+A python script which integrates a Pomodoro timer onto your i3-status bar. Currently it displays only remaining pomodoro length and 5 minute break afterwards. It does not support pausing or longer breaks after certain period and has to be started manually for every Pomodoro.
+
+This code was adapted from example i3-status script by Valentin Haenel.
+
+** Installation
+
+Copy i3-pomodoro.py onto your device and update your i3 configuration file, which in my case was located in '.config/i3/config'.
+
+#+BEGIN_SRC text
+  # start timer
+  bindsym $mod+p exec "touch $XDG_RUNTIME_DIR/i3-pomodoro"
+  # stop timer
+  bindsym $mod+o exec "rm -f $XDG_RUNTIME_DIR/i3-pomodoro"
+
+  bar {
+          status_command i3status | ~/bin/i3-pomodoro.py
+  }
+#+END_SRC
+
+** Configuration
+
+You can edit the script to change your default pomodoro and break durations or output colours. If you want to use different keys to start/stop the timer you can alter the i3 configuration file.
+
+** License
+
+This program is free software. It comes without any warranty, to the extent permitted by applicable law. You can redistribute it and/or modify it under the terms of the Do What The Fuck You Want To Public License (WTFPL), Version 2, as published by Sam Hocevar. See http://sam.zoy.org/wtfpl/COPYING for more details.
